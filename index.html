@@ -19,39 +19,44 @@
     <div id="app">
         <div class="green-bar">
             <div class="container">
+                <!-- applicazione -->
                 <div class="app mt-3">
+                    <!-- Lista contatti sinistra -->
                     <div class="row g-0 m-auto h-100">
                         <div class="col-4">
-                            <div class="row">
+                            <div class="row h-100">
                                 <div class="col-12">
-
-                                    
-                                    <div class="contacts">
+                                    <aside class="contacts">
+                                        <!-- user -->
                                         <div class="contact-user-top d-flex align-items-center ps-2">
                                             <img src="./img/avatar_io.jpg" alt="immagine profilo">
-                                            <div id="user">Sofia</div>
-                                            
+                                            <div class="user-info">
+                                                <div id="user">Sofia</div>
+                                                <div class="last-access">ultimo accesso</div>
+                                            </div>
                                         </div>
+                                        <!-- lista contatti chat -->
                                         <ul class="contacts-list">
                                             <li v-for="element in contacts">{{element.name}}</li>
-                                            
                                         </ul>
-                                    </div>
+                                    </aside>
                                 </div>
-
                             </div>
                         </div>
+                        <!-- chat destra -->
                         <div class="col-8">
-                            <div class="row">
+                            <div class="row h-100">
                                 <div class="col-12">
-                                    
                                     <div class="messages">
-                                        <div class="messages-top">
-                                            <img src="#" alt="">
-                                            <span>user</span>
-                                            <p>ultimo accesso</p>
-                                            
+                                        <!-- top bar chat -->
+                                        <div class="guest-top d-flex align-items-center ps-2">
+                                            <img src="./img/avatar_1.jpg" alt="">
+                                            <div class="contact-info">
+                                                <div>{{contacts[0].name}}</div>
+                                                <div class="last-access">ultimo accesso</div>
+                                            </div>
                                         </div>
+                                        <!-- conversazione con contatto aperto -->
                                         <div class="chat-messages">
                                             
                                         </div>
