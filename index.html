@@ -37,7 +37,14 @@
                                         </div>
                                         <!-- lista contatti chat -->
                                         <ul class="contacts-list">
-                                            <li v-for="element in contacts">{{element.name}}</li>
+                                            <li v-for="(element, index) in contacts">
+                                                <img :src="`./img/avatar${element.avatar}.jpg`">
+                                                <div class="contact-info">
+                                                    <div>{{element.name}}</div>
+                                                    <div class="last-access">ultimo accesso</div>
+                                                </div>
+                                                <div class="time last-access ms-auto">12:50</div>
+                                            </li>
                                         </ul>
                                     </aside>
                                 </div>
@@ -57,7 +64,14 @@
                                             </div>
                                         </div>
                                         <!-- conversazione con contatto aperto -->
-                                        <div class="chat-messages">
+                                        <div class="chat-messages px-3">
+                                            <div class="d-flex flex-column mb-3">
+                                                <div class="align-self-end bubble bubble-user mb-1">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</div>
+                                                <div class="align-self-end bubble bubble-user mb-1">Lorem ipsum, dolor.</div>
+                                            </div>
+                                            <div class="d-flex flex-column mb-3">
+                                                <div class="bubble bubble-guest mb-1">Lorem ipsum dolor sit.</div>
+                                            </div>
                                             
                                         </div>
                                     </div>

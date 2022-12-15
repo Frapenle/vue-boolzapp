@@ -4,6 +4,9 @@
     --app-top-grey: #eaeaea;
     --notification-bar: #8edafc;
     --contact-highlight: #e9ebeb;
+    --user-bubble-color: #d5f9ba;
+    --guest-bubble-color: #ffffff;
+    --search_bar-color: #f3eeea;
 }
 
 /* reset style */
@@ -15,7 +18,7 @@ ul {
 ul li {
     list-style-type: none;
     padding: 1rem .5rem;
-    border: 1px solid grey;
+    border-bottom: .7px solid #ebebebd9;
 }
 
 
@@ -52,10 +55,14 @@ ul li {
     height: 100%;
 }
 
-.contacts li,
 .contact-user-top,
 .guest-top {
     height: 60px;
+}
+
+.contacts li {
+    display: flex;
+    padding: 6px;
 }
 
 .contacts img,
@@ -67,17 +74,34 @@ ul li {
 
 /* messages */
 .contact-info,
+.time {
+    padding-top: 5px;
+}
+.contact-info,
 .user-info {
     line-height: 15px;
 }
 
-.contact-info .last-access,
-.user-info .last-access {
+.last-access {
     font-size: .7rem;
-    color: grey;
+    color: #adadad;
 }
 
 .chat-messages {
     height: 100%;
     background-image: url(../img/mine.jpg);
+}
+
+.bubble {
+    padding: 10px 15px;
+    border-radius: 1rem;
+    max-width: 80%;
+}
+
+.bubble-user {
+    background-color: var(--user-bubble-color);
+}
+
+.bubble-guest {
+    background-color: var(--guest-bubble-color);
 }
