@@ -105,3 +105,26 @@ ul li {
 .bubble-guest {
     background-color: var(--guest-bubble-color);
 }
+
+/* bottom input text */
+#input-user {
+    background-color: #f3eeea;
+    width: 100%;
+    margin: auto;
+}
+
+#input-user input {
+    width: 95%;
+}
+
+input::placeholder {
+    font-size: .8rem;
+}
+
+#emoticons,
+#mic {
+    color: grey;
+    margin: 0 10px;
+    width: 40px;
+    font-size: 1.2rem;
+}
