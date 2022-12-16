@@ -59,7 +59,7 @@
                                         </div>
                                         <!-- lista contatti chat -->
                                         <ul class="contacts-list">
-                                            <li v-for="contact in contacts" :key="contact.avatar" :class="{ active: !contact.visible }">
+                                            <li v-for="contact, index in contacts" :key="contact.avatar" :class="{ active: !contact.visible }" @click="selectContact(index)">
                                                 <img :src="`./img/avatar${contact.avatar}.jpg`" :alt="contact.name + ' ' + 'profile image'">
                                                 <div class="contact-info">
                                                     <div class="name">{{contact.name}}</div>

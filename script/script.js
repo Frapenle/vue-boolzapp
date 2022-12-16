@@ -173,6 +173,10 @@ createApp({
     },
     // methods
     methods: {
+        // funtion to select chat
+        selectContact (index){
+            this.activeUser = index;
+        },
         // function truncate string last message
         lastMessage(string, limit) {
             if(string.length > limit) {
