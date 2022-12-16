@@ -31,7 +31,7 @@
                                         <div class="contact-user-top d-flex align-items-center ps-2">
                                             <div class="w-100 d-flex align-items-center justify-content-between">
                                                 <div class="user-info d-flex align-items-center">
-                                                    <img src="./img/avatar_io.jpg" alt="immagine profilo">
+                                                    <img src="./img/avatar_io.jpg" alt="immagine profilo personale">
                                                     <div class="user-info_data">
                                                         <div id="user">Sofia</div>
                                                     </div>
@@ -59,11 +59,11 @@
                                         </div>
                                         <!-- lista contatti chat -->
                                         <ul class="contacts-list">
-                                            <li v-for="element in contacts" :key="element.avatar" :class="{ active: !element.visible }">
-                                                <img :src="`./img/avatar${element.avatar}.jpg`" :alt="element.name">
+                                            <li v-for="contact in contacts" :key="contact.avatar" :class="{ active: !contact.visible }">
+                                                <img :src="`./img/avatar${contact.avatar}.jpg`" :alt="contact.name + ' ' + 'profile image'">
                                                 <div class="contact-info">
-                                                    <div class="name">{{element.name}}</div>
-                                                    <div v-for="msg in element.messages" class="sub-text" :get-data="element.avatar">{{ lastMessage(msg.message, 30) }}</div>
+                                                    <div class="name">{{contact.name}}</div>
+                                                    <div class="sub-text">Ultimo messaggio</div>
                                                 </div>
                                                 <div class="time sub-text ms-auto">12:50</div>
                                             </li>
@@ -81,9 +81,9 @@
                                         <div class="guest-top d-flex align-items-center ps-2">
                                             <div class="w-100 d-flex align-items-center justify-content-between">
                                                 <div class="guest-info d-flex align-items-center">
-                                                    <img src="./img/avatar_io.jpg" alt="immagine profilo">
+                                                    <img :src="`./img/avatar${contacts[activeUser].avatar}.jpg`" :alt="contacts[activeUser].name + ' ' + 'profile image'">
                                                     <div class="guest-info_data">
-                                                        <div id="user">Sofia</div>
+                                                        <div id="guest">{{contacts[activeUser].name}}</div>
                                                         <div class="sub-text">ultimo accesso</div>
                                                     </div>
                                                 </div>
