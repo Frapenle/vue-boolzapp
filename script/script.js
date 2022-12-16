@@ -3,6 +3,7 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
+            search: '',
             activeUser: 0,
             inputText: '',
             contacts: [
@@ -168,12 +169,17 @@ createApp({
                     ],
                 }
             ]
-            
-            
         }
     },
     // methods
     methods: {
+        // filter search
+        filterContacts(){
+            return this.contacts.filter(contact => {
+                const filtered = contact.name.toLowerCase().includes(this.search.toLowerCase());
+                return filtered;
+            })
+        },
         // User input text
         enterText(content) {
             let newObject = { date: '10/01/2020 15:51:00', message: content, status: 'sent' };
@@ -204,7 +210,6 @@ createApp({
                 autoReply.push (newObject)
             }, 1000)
         },
-    
 },
     created() {
         console.log(this.contacts[7].messages[2].message)
