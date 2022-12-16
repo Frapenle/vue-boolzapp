@@ -178,25 +178,32 @@ createApp({
         enterText(content) {
             let newObject = { date: '10/01/2020 15:51:00', message: content, status: 'sent' };
             let addMessage = this.contacts[this.activeUser].messages;
-
             if (content != '') {
                 addMessage.push(newObject);
             };
             this.inputText = '';
-
+            this.autoreply();
         },
         // funtion to select chat
         selectContact (index){
             this.activeUser = index;
-        },
+            },
         // function truncate string last message
         lastMessage(string, limit) {
             if(string.length > limit) {
                 return string.substring(0, limit) + "...";
-        } else {
-            return string;
-        }
-    },
+            } else {
+                return string;
+            }
+        },
+        // auto reply when user input text
+        autoreply() {
+            setTimeout(() => {
+                let newObject = { date: '10/01/2020 15:51:00', message: "OK!", status: 'received' };
+                let autoReply = this.contacts[this.activeUser].messages;
+                autoReply.push (newObject)
+            }, 1000)
+        },
     
 },
     created() {
