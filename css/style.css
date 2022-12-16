@@ -130,15 +130,18 @@ input.search {
 .bubble {
     padding: 10px 15px 13px 15px;
     border-radius: .5rem;
+    min-width: 50px;
     max-width: 80%;
 }
 
-.bubble-user {
+.sent {
     background-color: var(--user-bubble-color);
+    align-self: flex-end;
 }
 
-.bubble-guest {
+.received {
     background-color: var(--guest-bubble-color);
+    align-self: flex-start;
 }
 
 .time-send {
@@ -170,4 +173,3 @@ input::placeholder {
     width: 40px;
     font-size: 1.2rem;
 }
-

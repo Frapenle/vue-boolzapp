@@ -4,6 +4,7 @@ createApp({
     data() {
         return {
             activeUser: 0,
+            inputText: '',
             contacts: [
                 {
                     name: 'Michele',
@@ -173,6 +174,17 @@ createApp({
     },
     // methods
     methods: {
+        // User input text
+        enterText(content) {
+            let newObject = { date: '10/01/2020 15:51:00', message: content, status: 'sent' };
+            let addMessage = this.contacts[this.activeUser].messages;
+
+            if (content != '') {
+                addMessage.push(newObject);
+            };
+            this.inputText = '';
+
+        },
         // funtion to select chat
         selectContact (index){
             this.activeUser = index;
