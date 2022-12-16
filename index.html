@@ -29,21 +29,43 @@
                                     <section class="contacts">
                                         <!-- user -->
                                         <div class="contact-user-top d-flex align-items-center ps-2">
-                                            <img src="./img/avatar_io.jpg" alt="immagine profilo">
-                                            <div class="user-info">
-                                                <div id="user">Sofia</div>
-                                                <div class="last-access">ultimo accesso</div>
+                                            <div class="w-100 d-flex align-items-center justify-content-between">
+                                                <div class="user-info d-flex align-items-center">
+                                                    <img src="./img/avatar_io.jpg" alt="immagine profilo">
+                                                    <div class="user-info_data">
+                                                        <div id="user">Sofia</div>
+                                                    </div>
+                                                </div>
+                                                <div class="user-info_icons pe-1">
+                                                    <a href=""><a href="#"><i class="fa-solid fa-circle-notch"></i></a></a>
+                                                    <a href="#"><i class="fa-solid fa-message"></i></a>
+                                                    <a href="#"><i class="fa-solid fa-ellipsis-vertical"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- searchbar and banner notification -->
+                                        <div class="banner d-flex align-items-center">
+                                            <i class="fa-solid fa-bell-slash d-inline-block"></i>
+                                            <div class="ms-2">
+                                                <div class="">Ricevi notifiche di nuovi messaggi</div>
+                                                <div class="sub-text text-decoration-underline">Attiva notifiche desktop</div>
+                                            </div>
+                                        </div>
+                                        <div class="search-bar p-1">
+                                            <div class="d-flex border border-1 w-100">
+                                                <a href="#"><i class="fa-solid fa-magnifying-glass ms-2"></i></a>
+                                                <input class="search flex-grow-1" type="text" placeholder="Cerca o inizia una nuova chat">
                                             </div>
                                         </div>
                                         <!-- lista contatti chat -->
                                         <ul class="contacts-list">
-                                            <li v-for="(element, index) in contacts">
-                                                <img :src="`./img/avatar${element.avatar}.jpg`">
+                                            <li v-for="element in contacts" :key="element.avatar" :class="{ active: !element.visible }">
+                                                <img :src="`./img/avatar${element.avatar}.jpg`" :alt="element.name">
                                                 <div class="contact-info">
-                                                    <div>{{element.name}}</div>
-                                                    <div class="last-access">ultimo accesso</div>
+                                                    <div class="name">{{element.name}}</div>
+                                                    <div v-for="msg in element.messages" class="sub-text" :get-data="element.avatar">{{ lastMessage(msg.message, 30) }}</div>
                                                 </div>
-                                                <div class="time last-access ms-auto">12:50</div>
+                                                <div class="time sub-text ms-auto">12:50</div>
                                             </li>
                                         </ul>
                                     </section>
@@ -57,26 +79,34 @@
                                     <section class="messages">
                                         <!-- top bar chat -->
                                         <div class="guest-top d-flex align-items-center ps-2">
-                                            <img src="./img/avatar_1.jpg" alt="">
-                                            <div class="contact-info">
-                                                <div>{{contacts[0].name}}</div>
-                                                <div class="last-access">ultimo accesso</div>
+                                            <div class="w-100 d-flex align-items-center justify-content-between">
+                                                <div class="guest-info d-flex align-items-center">
+                                                    <img src="./img/avatar_io.jpg" alt="immagine profilo">
+                                                    <div class="guest-info_data">
+                                                        <div id="user">Sofia</div>
+                                                        <div class="sub-text">ultimo accesso</div>
+                                                    </div>
+                                                </div>
+                                                <div class="guest-info_icons pe-1">
+                                                    <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+                                                    <a href="#"><i class="fa-solid fa-paperclip"></i></a>
+                                                    <a href="#"><i class="fa-solid fa-ellipsis-vertical"></i></a>
+                                                </div>
                                             </div>
                                         </div>
                                         <!-- conversazione con contatto aperto -->
                                         <div class="chat-messages px-3">
                                             <div class="d-flex flex-column mb-3">
-                                                <div class="align-self-end bubble bubble-user mb-1">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</div>
-                                                <div class="align-self-end bubble bubble-user mb-1">Lorem ipsum, dolor.</div>
+                                                <div class="align-self-end bubble bubble-user mb-1 position-relative">Lorem ipsum, dolor sit amet consectetur adipisicing elit.<span class="time-send position-absolute">time</span></div>
                                             </div>
                                             <div class="d-flex flex-column mb-3">
-                                                <div class="bubble bubble-guest mb-1">Lorem ipsum dolor sit.</div>
+                                                <div class="bubble bubble-guest mb-1 position-relative">Lorem ipsum dolor sit.<span class="time-send position-absolute">time</span></div>
                                             </div>
                                         </div>
                                         <div id="input-user" class="d-flex p-2 justify-content-between align-items-center">
-                                            <i id="emoticons" class="fa-regular fa-face-smile"></i>
+                                            <a href="#"><i id="emoticons" class="fa-regular fa-face-smile"></i></a>
                                             <input type="text" class="p-1 border rounded-2" placeholder="Scrivi un messaggio">
-                                            <i id="mic" class="fa-solid fa-microphone text-end"></i>
+                                            <a href="#"><i id="mic" class="fa-solid fa-microphone text-end"></i></a>
                                         </div>
                                     </section>
                                 </div>

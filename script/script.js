@@ -1,8 +1,9 @@
-const { createApp } = Vue
+const { createApp } = Vue;
 
 createApp({
     data() {
         return {
+            activeUser: 0,
             contacts: [
                 {
                     name: 'Michele',
@@ -161,17 +162,28 @@ createApp({
                         {
                             date: '10/01/2020 15:51:00',
                             message: 'OK!!',
-                            status: 'received'
+                            status: 'received',
                         }
                     ],
                 }
             ]
-
+            
             
         }
     },
     // methods
     methods: {
-        
+        // function truncate string last message
+        lastMessage(string, limit) {
+            if(string.length > limit) {
+                return string.substring(0, limit) + "...";
+        } else {
+            return string;
+        }
+    },
+    
+},
+    created() {
+        console.log(this.contacts[7].messages[2].message)
     }
 }).mount('#app')

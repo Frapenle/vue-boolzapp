@@ -9,7 +9,13 @@
     --search_bar-color: #f3eeea;
 }
 
-/* reset style */
+/* basic style */
+i { 
+    cursor: pointer;
+    padding: 0 6px;
+    color: rgb(176, 175, 175);
+}
+
 ul {
     padding: 0;
     margin: 0;
@@ -21,6 +27,9 @@ ul li {
     border-bottom: .7px solid #ebebebd9;
 }
 
+.active {
+    background-color: rgba(191, 191, 191, 0.8);
+}
 
 /* background */
 .bg-color {
@@ -40,14 +49,8 @@ ul li {
     height: 95vh;
 }
 
-.contact-user-top,
-.guest-top {
-    background-color: var(--app-top-grey);
-}
-
 .contacts,
 .messages {
-    border-right: 2px solid grey;
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -57,12 +60,19 @@ ul li {
 
 .contact-user-top,
 .guest-top {
+    background-color: var(--app-top-grey);
     height: 60px;
+    flex-shrink: 0;
+    border-right: 1px solid rgb(222, 222, 222);
 }
 
 .contacts li {
     display: flex;
-    padding: 6px;
+    padding: 6px 5px 6px 15px;
+}
+
+.contacts li:hover {
+    background-color: rgba(191, 191, 191, 0.3);
 }
 
 .contacts img,
@@ -72,17 +82,42 @@ ul li {
     margin-right: 15px;
 }
 
+/* banner */
+.banner {
+    background-color: var(--notification-bar);
+    padding: 10px 10px;
+}
+
+.banner i {
+    padding: 8px 6px;
+    font-size: 1.1rem;
+    background-color: white;
+    border-radius: 50%;
+    color: var(--notification-bar);
+}
+
+.search-bar {
+    background-color: var(--search_bar-color);
+}
+
+.search-bar a {
+    background-color: white;
+}
+
+input.search {
+    border: none!important;
+    outline: none!important;
+}
+
 /* messages */
 .contact-info,
-.time {
-    padding-top: 5px;
-}
-.contact-info,
-.user-info {
+.user-info,
+.guest-info {
+    margin-top:5px;
     line-height: 15px;
 }
 
-.last-access {
+.sub-text {
     font-size: .7rem;
     color: #adadad;
 }
@@ -93,8 +128,8 @@ ul li {
 }
 
 .bubble {
-    padding: 10px 15px;
-    border-radius: 1rem;
+    padding: 10px 15px 13px 15px;
+    border-radius: .5rem;
     max-width: 80%;
 }
 
@@ -106,6 +141,13 @@ ul li {
     background-color: var(--guest-bubble-color);
 }
 
+.time-send {
+    font-size: .6rem;
+    bottom: 2px;
+    right: 5px;
+    color: #adadad;
+}
+
 /* bottom input text */
 #input-user {
     background-color: #f3eeea;
@@ -114,6 +156,7 @@ ul li {
 }
 
 #input-user input {
+    outline: none;
     width: 95%;
 }
 
@@ -123,8 +166,8 @@ input::placeholder {
 
 #emoticons,
 #mic {
-    color: grey;
     margin: 0 10px;
     width: 40px;
     font-size: 1.2rem;
 }
+
