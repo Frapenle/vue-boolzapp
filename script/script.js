@@ -173,16 +173,17 @@ createApp({
     },
     // methods
     methods: {
-        // filter search
-        filterContacts(){
-            return this.contacts.filter(contact => {
-                const filtered = contact.name.toLowerCase().includes(this.search.toLowerCase());
-                return filtered;
-            })
+        nowDate() {
+            let DateTime = luxon.DateTime;
+            let time = DateTime.now().toFormat('dd/LL/y HH:mm:ss')
+            return time
+        },
+        filterMessages() {
+            // return this.contacts[this.message].filter (messages => {
         },
         // User input text
         enterText(content) {
-            let newObject = { date: '10/01/2020 15:51:00', message: content, status: 'sent' };
+            let newObject = { date: this.nowDate(), message: content, status: 'sent' };
             let addMessage = this.contacts[this.activeUser].messages;
             if (content != '') {
                 addMessage.push(newObject);
@@ -190,8 +191,16 @@ createApp({
             this.inputText = '';
             this.autoreply();
         },
+        // filter search
+        filterContacts(){
+            return this.contacts.filter(contact => {
+                const filtered = contact.name.toLowerCase().includes(this.search.toLowerCase());
+                return filtered;
+            })
+        },
         // funtion to select chat
         selectContact (index){
+            console.log(index);
             this.activeUser = index;
             },
         // function truncate string last message
@@ -205,13 +214,15 @@ createApp({
         // auto reply when user input text
         autoreply() {
             setTimeout(() => {
-                let newObject = { date: '10/01/2020 15:51:00', message: "OK!", status: 'received' };
+                let newObject = { date: this.nowDate(), message: "OK!", status: 'received' };
                 let autoReply = this.contacts[this.activeUser].messages;
                 autoReply.push (newObject)
             }, 1000)
         },
 },
     created() {
-        console.log(this.contacts[7].messages[2].message)
+        
+        // console.log(this.contacts[7].messages[2].date.slice(11, 16));
     }
+    
 }).mount('#app')

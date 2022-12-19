@@ -3,6 +3,7 @@
     --bg-body: #dbdbd2;
     --app-top-grey: #eaeaea;
     --notification-bar: #8edafc;
+    --notification-subtext-color: #878787;
     --contact-highlight: #e9ebeb;
     --user-bubble-color: #d5f9ba;
     --guest-bubble-color: #ffffff;
@@ -25,6 +26,7 @@ ul li {
     list-style-type: none;
     padding: 1rem .5rem;
     border-bottom: .7px solid #ebebebd9;
+    cursor: pointer;
 }
 
 .active {
@@ -86,6 +88,14 @@ ul li {
 .banner {
     background-color: var(--notification-bar);
     padding: 10px 10px;
+}
+
+.notification {
+    font-size: .9rem;
+}
+
+.notification+.sub-text {
+    color: var(--notification-subtext-color);
 }
 
 .banner i {
