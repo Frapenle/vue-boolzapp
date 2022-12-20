@@ -173,7 +173,6 @@ createApp({
     },
     // methods
     methods: {
-
         nowDate() {
             let DateTime = luxon.DateTime;
             let time = DateTime.now().toFormat('dd/LL/y HH:mm:ss')
