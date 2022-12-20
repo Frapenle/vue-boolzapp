@@ -53,12 +53,12 @@
                                         <div class="search-bar p-1">
                                             <div class="d-flex border border-1 w-100">
                                                 <a href="#"><i class="fa-solid fa-magnifying-glass ms-2"></i></a>
-                                                <input v-model="search" class="search flex-grow-1" type="text" placeholder="Cerca o inizia una nuova chat">
+                                                <input v-model="search" class="search flex-grow-1" type="text" placeholder="Cerca o inizia una nuova chat" @keyup="filter()">
                                             </div>
                                         </div>
                                         <!-- contacts list -->
                                         <ul class="contacts-list">
-                                            <li v-for="contact, index in filterContacts()" :key="contact.avatar" @click="selectContact(index)" :class="activeUser === index ? 'active' : ''">
+                                            <li v-for="contact, index in contacts" @click="selectContact(index)" :class="!contact.visible ? 'd-none' : ''">
                                                 <img :src="`./img/avatar${contact.avatar}.jpg`" :alt="contact.name + ' ' + 'profile image'">
                                                 <div class="contact-info">
                                                     <div class="name">{{contact.name}}</div>

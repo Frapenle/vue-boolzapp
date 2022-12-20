@@ -184,9 +184,9 @@ createApp({
             let addMessage = this.contacts[this.activeUser].messages;
             if (content != '') {
                 addMessage.push(newObject);
+                this.autoreply();
             };
             this.inputText = '';
-            this.autoreply();
         },
         // filter search
         filter() {
