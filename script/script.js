@@ -189,11 +189,14 @@ createApp({
             this.autoreply();
         },
         // filter search
-        filterContacts(){
-            return this.contacts.filter(contact => {
-                const filtered = contact.name.toLowerCase().includes(this.search.toLowerCase());
-                return filtered;
-            })
+        filter() {
+            this.contacts.forEach((contact, index) => {
+                if (!this.contacts[index].name.toLowerCase().includes(this.search.toLowerCase())) {
+                    this.contacts[index].visible = false;
+                } else {
+                    this.contacts[index].visible = true;
+                }
+            });
         },
         // funtion to select chat
         selectContact (index){
