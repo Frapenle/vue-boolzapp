@@ -3,6 +3,7 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
+            messageIndex: 0,
             search: '',
             activeUser: 0,
             inputText: '',
@@ -173,6 +174,10 @@ createApp({
     },
     // methods
     methods: {
+        deleteMessage(index) {
+            // this.contacts[this.activeUser].messages.splice(this.messageIndex, 1);
+            console.log(this.contacts[this.activeUser].messages.splice(index, 1));
+        },
         nowDate() {
             let DateTime = luxon.DateTime;
             let time = DateTime.now().toFormat('dd/LL/y HH:mm:ss')
