@@ -209,9 +209,5 @@ createApp({
             }, 1000)
         },
 },
-    created() {
-        
-        console.log(this.contacts[this.activeUser].messages[this.contacts[this.activeUser].messages.length - 1].date);
-    }
     
 }).mount('#app')
