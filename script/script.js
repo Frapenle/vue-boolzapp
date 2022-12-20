@@ -173,13 +173,11 @@ createApp({
     },
     // methods
     methods: {
+
         nowDate() {
             let DateTime = luxon.DateTime;
             let time = DateTime.now().toFormat('dd/LL/y HH:mm:ss')
             return time
-        },
-        filterMessages() {
-            // return this.contacts[this.message].filter (messages => {
         },
         // User input text
         enterText(content) {
@@ -203,14 +201,6 @@ createApp({
             console.log(index);
             this.activeUser = index;
             },
-        // function truncate string last message
-        lastMessage(string, limit) {
-            if(string.length > limit) {
-                return string.substring(0, limit) + "...";
-            } else {
-                return string;
-            }
-        },
         // auto reply when user input text
         autoreply() {
             setTimeout(() => {
@@ -222,7 +212,7 @@ createApp({
 },
     created() {
         
-        // console.log(this.contacts[7].messages[2].date.slice(11, 16));
+        console.log(this.contacts[this.activeUser].messages[this.contacts[this.activeUser].messages.length - 1].date);
     }
     
 }).mount('#app')

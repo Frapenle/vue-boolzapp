@@ -123,8 +123,17 @@ input.search {
 .contact-info,
 .user-info,
 .guest-info {
+    width: 100%;
     margin-top:5px;
     line-height: 15px;
+    min-width: 0;
+}
+
+.contact-info>div{
+    min-width: 170px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .sub-text {
@@ -159,6 +168,13 @@ input.search {
     bottom: 2px;
     right: 5px;
     color: #adadad;
+}
+
+.contact-chat-name {
+    line-height: 14px;
+    font-weight: 600;
+    color: rgb(82, 146, 249);
+    font-size: .8rem;
 }
 
 /* bottom input text */
