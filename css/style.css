@@ -198,8 +198,7 @@ input.search {
     cursor: pointer;
 }
 
-div.bubble:hover .dropdown.position-absolute{
-    z-index: 2;
+div.bubble:hover .dropdown{
     display: inline;
     opacity: 1;
 }

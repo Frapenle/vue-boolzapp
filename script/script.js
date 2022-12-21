@@ -3,7 +3,6 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
-            messageIndex: 0,
             search: '',
             activeUser: 0,
             inputText: '',
@@ -174,9 +173,13 @@ createApp({
     },
     // methods
     methods: {
-        deleteMessage(index) {
-            // this.contacts[this.activeUser].messages.splice(this.messageIndex, 1);
-            console.log(this.contacts[this.activeUser].messages.splice(index, 1));
+
+        deleteMessage(contact, index) {
+            let message = this.contacts[this.activeUser].messages;
+            if (message.length != 1){
+                message.splice(index, 1);
+                console.log(message);
+            }
         },
         nowDate() {
             let DateTime = luxon.DateTime;
@@ -196,11 +199,12 @@ createApp({
         // filter search
         filter() {
             this.contacts.forEach((contact, index) => {
-                if (!this.contacts[index].name.toLowerCase().includes(this.search.toLowerCase())) {
-                    this.contacts[index].visible = false;
-                } else {
-                    this.contacts[index].visible = true;
-                }
+                    if (!this.contacts[index].name.toLowerCase().includes(this.search.toLowerCase())) {
+                        this.contacts[index].visible = false;
+                    } else {
+                        this.contacts[index].visible = true;
+                    }
+                
             });
         },
         // funtion to select chat
