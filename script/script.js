@@ -174,12 +174,8 @@ createApp({
     // methods
     methods: {
 
-        deleteMessage(contact, index) {
-            let message = this.contacts[this.activeUser].messages;
-            if (message.length != 1){
-                message.splice(index, 1);
-                console.log(message);
-            }
+        deleteMessage(activeContact, index) {
+                this.contacts[this.activeUser].messages.splice(index, 1);
         },
         nowDate() {
             let DateTime = luxon.DateTime;
